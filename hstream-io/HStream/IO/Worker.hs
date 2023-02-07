@@ -8,7 +8,6 @@ module HStream.IO.Worker where
 import qualified Control.Concurrent        as C
 import           Control.Exception         (catch, throw, throwIO)
 import           Control.Monad             (forM_, unless)
-import qualified Data.Aeson                as J
 import qualified Data.HashMap.Strict       as HM
 import           Data.IORef                (newIORef, readIORef)
 import qualified Data.IORef                as C
@@ -22,8 +21,6 @@ import           HStream.IO.Types
 import qualified HStream.Logger            as Log
 import           HStream.MetaStore.Types   (MetaHandle (..))
 import qualified HStream.Server.HStreamApi as API
-import qualified HStream.SQL.Codegen       as CG
-import           HStream.Utils.Validation  (validateNameAndThrow)
 
 newWorker :: MetaHandle -> HStreamConfig -> IOOptions -> IO Worker
 newWorker mHandle hsConfig options = do
